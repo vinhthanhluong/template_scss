@@ -1,0 +1,66 @@
+/*==========================================================================*/
+/*                     H O V E R    &    P C    O N L Y                     */
+/*==========================================================================*/
+
+@media screen and (min-width: 751px) {
+    .sp320, .sp375, .sp425{
+        display: none;
+    }
+
+    #topic_path {
+        li {
+            a:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .under-clm{
+        &.col1 {
+            dl {
+                &:not(:last-child) {
+                    border-bottom: none;
+                }
+            }
+        }
+    
+        &.col2 {
+            dl {
+                width: 50%;
+                &:nth-child(2n + 2) {
+                    border-left: none;
+                }
+    
+                &:nth-child(1n + 3) {
+                    border-top: none;
+                }
+            }
+        }
+    
+        &.col3{
+            dl{
+                width: calc(100% / 3);
+                &:nth-child(3n + 2){
+                    border-left: none;
+                }
+    
+                &:nth-child(3n + 3){
+                    border-left: none;
+                }
+    
+                
+                &:nth-child(1n + 4) {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
+
+/* END screen-min:751px */
+
+
+
+@media screen and (min-width: 751px) and (max-width: 1500px) {}
+
+/* END screen-min:751px && screen-max:1500px */

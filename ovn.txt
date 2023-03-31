@@ -1,0 +1,230 @@
+<!-- *********   Post   ********* -->
+<ul class="io-cate">
+    <ONCategory>
+        <li><a href="{=$category_url=}">{=$category_name=}</a></li>
+    </ONCategory>
+</ul>
+
+<?php $limitNum = 6 ?> <!-- add page cate category="@$current_category_id" -->
+<ONContributeSearch page="@$_GET['p']" limit="$limitNum">
+    <ul class="io-post">
+        <ONContributeFetch>
+            <li>
+                <?php
+                    $dates = explode("/", $date);
+                ?>
+                <div class="io-item">
+                    <ONIf condition="$img01_Value">
+                        <p class="io-img">
+                            <img src="{=$img01_Src=}" alt="{=$title=}">
+                        </p>
+                        <ONElse>
+                            <p class="io-img">
+                                <img src="../images/under-img01.jpg" alt="{=$title=}">
+                            </p>
+                    </ONIf>
+                    <div class="io-content">
+                        <p class="io-tt">{=$title=}</p>
+                        <p class="io-ft">
+                            <span
+                                class="io-date">{=$dates[0]=}.{=$dates[1]=}.{=$dates[2]=}</span>
+                            <span class="io-ct">{=$category_name=}</span>
+                        </p>
+                    </div>
+                    <a href="{=$url=}" class="io-lk"></a>
+                </div>
+            </li>
+        </ONContributeFetch>
+    </ul>
+</ONContributeSearch>
+<!-- *********   End - Post   ********* -->
+
+<!-- *********   Detail   ********* -->
+<ONContribute id="$contribute_id"></ONContribute>
+<?php
+$current_category_id   = $category_id;
+$current_category_name = $category_name;
+?>
+<ONCategory>
+	<?php if( $current_category_id==$category_id ) $current_category_url = $category_url; ?>
+</ONCategory>
+<!-- *********   End - Detail   ********* -->
+
+
+<!-- *********   PAGINATION   ********* -->
+<ONPagenation record_count="$max_record_count" limit="$limitNum">
+    <ONIf condition="$max_record_count > $limitNum">
+        <ul class="pagination">
+            <ONIf condition="$current_page <= 1">
+                <li class="disabled"><a href="#">&laquo;</a></li>
+                <ONElse>
+                    <li class="pg-arrow"><a href="./?p={=$current_page-1=}">&laquo;</a></li>
+            </ONIf>
+            <ONPagenationFetch>
+                <ONIf condition="$current_page == $page">
+                    <li class="active"><a href="#">{=$page=}</a></li>
+                    <ONElse>
+                        <li><a href="./?p={=$page=}">{=$page=}</a></li>
+                </ONIf>
+            </ONPagenationFetch>
+            <ONIf condition="$current_page*$limitNum<$max_record_count">
+                <?php
+                $lastpage = ceil($max_record_count / $limitNum);
+                ?>
+                <li class="pg-arrow"><a href="./?p={=$current_page+1=}">&raquo;</a></li>
+                <ONElse>
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+            </ONIf>
+        </ul>
+    </ONIf>
+</ONPagenation>
+<!-- *********    /PAGINATION ********* -->
+
+
+<!-- *********   nextPage   ********* -->
+<div class="section">
+    <div class="btn_prev_next_sec clearfix">
+        <?php $current_url = $url; ?>
+        <ONContributeSearch category="$current_category_id">
+            <ONContributeFetch>
+                <?php $pages[] = $url; ?>
+            </ONContributeFetch>
+        </ONContributeSearch>
+        <?php $current_page = array_search($current_url,$pages); ?>
+        <ul class="btn_prev_next">
+            <?php if($prev = @$pages[$current_page+1]): ?>
+            <li class="prevPage"><a href="../<?php echo $prev ?>">&#8592; 前の記事へ</a></li>
+            <?php endif; ?>
+            <li class="centerPage"><a href="../{=$current_category_url=}/">一覧に戻る</a></li>
+            <?php if($next = @$pages[$current_page-1]): ?>
+            <li class="nextPage"><a href="../<?php echo $next ?>">次の記事へ &#8594;</a></li>
+            <?php endif ?>
+        </ul>
+    </div>
+</div>
+
+<!--   Get Title -> btn next   -->
+<div class="section">
+    <div class="btn_prev_next_sec clearfix">
+        <?php $current_url = $url; ?>
+        <?php $current_ttl = $title; ?>
+        <ONContributeSearch category="$current_category_id">
+            <ONContributeFetch>
+                <?php $pages[] = $url; ?>
+                <?php $titles[] = $title; ?>
+            </ONContributeFetch>
+        </ONContributeSearch>
+        <?php $current_page = array_search($current_url, $pages); ?>
+
+        <ul class="btn_prev_next">
+            <?php if ($prev = @$pages[$current_page+1]): ?>
+            <li class="prevPage"><a href="../<?php echo $prev ?>"><span>&#8592;
+                <?php echo $titles[$current_page+1]; ?></span></a></li>
+            <?php endif; ?>
+            <li class="centerPage"><a href="../{=$current_category_url=}/"><span>一覧に戻る</span></a></li>
+            <?php if ($next = @$pages[$current_page-1]): ?>
+            <li class="nextPage"><a
+                    href="../<?php echo $next ?>"><span><?php echo $titles[$current_page-1]; ?> &#8594;</span></a>
+            </li>
+            <?php endif ?>
+        </ul>
+    </div>
+</div>
+
+<!-- *********   /nextPage   ********* -->
+
+<!--   dùng cho file index , category     -->
+{=mb_strimwidth(strip_tags($text1_Value), 0, 200, '…', 'UTF-8')=}	
+
+
+<ONIf condition="$title">
+	<p class="news-title">
+		{=$title=}
+	</p>
+    <ONElse>
+    <p class="news-title">
+		asdasdasdasdasdasdasd
+	</p>
+</ONIf>
+
+<!--   set checkbox     -->
+<?php $checkbox=(explode(",",$checkbox_Value)); foreach ($checkbox as $key) :?>
+	<ONCategory><?php if($key == $category_name){echo $category_url;}  ?></ONCategory>
+<?php endforeach;?>
+
+<?php $checkbox=(explode(",",checkbox_Value)); foreach ($checkbox as $key) :?>
+    <?php{echo $$key;}  ?>
+<?php endforeach;?>
+
+<!--   check use date ovn     -->
+<ONIf condition="$field_id==1"></ONIf>
+
+<!--   date     -->
+<?php echo date("Y.m.d", strtotime($date)); ?>
+
+
+OVN (khong cho meta)
+- List
+	Meta title: {=$base_title=} | ten cong ty
+	Meta keyword: {=$base_title=}
+	Meta description: {=$base_title=}
+- Category
+	Meta title: {=$category_name=} | {=$base_title=}
+	Meta keyword: {=$category_name=}, {=$base_title=}
+	Meta description: {=$category_name=}, {=$base_title=}
+- Detail
+	Meta title: {=$title=} | {=$base_title=}
+	Meta keyword: {=$title=}, {=$base_title=}
+	Meta description: {=$title=}, {=$base_title=}
+
+
+dang dỏw
+ <?php
+    // for ($x = 1; $x <= 10; $x++) {
+    //     if ($x <= 9) {
+    //         $text = 'text0' . $x . '_Value';
+    //         $img = 'img0' . $x . '_Src';
+    //     } else {
+    //         $text = 'text' . $x . '_Value';
+    //         $img = 'img' . $x . '_Src';
+    //     }
+
+    //     $html = "<div class='dovn-item'>
+    //                 <div class='dovn-desc'>
+    //                     " . $$text . "
+    //                 </div>
+    //                 <p class='dovn-img'>
+    //                     <img src='" . $$img . "' alt='$title'>
+    //                 </p>
+    //             </div>";
+
+    //     echo $html;
+    // }
+?>
+
+
+ <?php
+    for ($i = 1; $i <= 5; $i++) {
+        $img = 'info_img' . $i . '_Value';
+        $imgSrc = 'info_img' . $i . '_Src';
+        $video = 'info_video' . $i . '_Value';
+        $txt = 'info_txt' . $i . '_Value';
+        if (($$img || $$video || $$txt)) :
+    ?>
+            <div class="section">
+                <?php if ($$img) : ?>
+                    <p class="info_detail_img"><img src="<?php echo $$imgSrc; ?>" alt="{=$title=}"></p>
+                <?php endif; ?>
+                <?php if ($$video) : ?>
+                    <div class="info_detail_video">
+                        <?php echo $$video; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($$txt) : ?>
+                    <div class="un_txt clearfix">
+                        <?php echo $$txt; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+<?php endif; } ?>

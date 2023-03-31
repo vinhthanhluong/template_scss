@@ -1,0 +1,124 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Breadcrumb
+<script type="application/ld+json">
+	{
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": 
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {	
+                    "@id": "http://www.totsuka-pearl.com/",
+                    "name": "戸塚パール歯科"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@id": "http://www.totsuka-pearl.com/clinic/flow.html",
+                    "name": "治療の流れ"
+                }
+            }
+        ]
+	}
+</script>
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ page TOP
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "LocalBusiness",
+        "name" : "株式会社　エネチタ（ハウスドゥ 大府）",
+        "founder":"",
+        "foundingDate":"0000-00-00", //設立日
+        "description" : "H1h1h1h1h1h1hh1h1h1h1",
+        "url" : "https://www.housedo-enechita.jp",
+        "logo": "https://www.housedo-enechita.jp/images/logo.svg",
+        "telephone" : "0120-932-912", //電話番号
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "桃山町1丁目223番地1",
+            "addressLocality": "大府市",
+            "addressRegion": "愛知県",
+            "postalCode": "474-0026",
+            "addressCountry": "JP"
+        },
+        "contactPoint" :[{
+            "@type" : "ContactPoint",
+            "telephone" : "0120-932-912",
+            "contactType" : "customer service"
+        }],
+        "sameAs":[ //関連サイトやSNS]
+    }
+</script>
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  QA
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity":
+        [
+            {
+                "@type": "Question",
+                "name": "不動産を売却するには何から始めたらよいでしょうか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "不動産売却で最初に行うのは査定です。査定とは、不動産がいくらくらいで売れそうか、おおよその価格を算出することです。当社では適正な<a href=https://www.sakurahouse.co.jp/contact/>無料査定</a>を承っておりますので、お気軽にご依頼ください。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "査定してもらったら売却しなければいけませんか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "そのようなことはございません。当社では、査定を受けられたお客様に無理やり売却を強制するようなことはありませんので、安心して無料査定をご依頼ください。査定価格を把握したうえで、実際に売却するかどうか、お客様にご判断をお願いしております。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "不動産の売却を依頼するには、契約を結ばなければいけないのでしょうか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "はい、当社での売却をご依頼される場合には媒介契約を結んでいただきます。媒介契約には、「専属専任媒介契約」「専任媒介契約」「一般媒介契約」の3種類があります。それぞれの媒介契約の特徴を比較検討いただき、売主様の売却方針に合った契約を結ぶようにしましょう。"
+                }
+            }
+        ]
+    }
+</script>
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ HowTo , STEP
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/", 
+        "@type": "HowTo", 
+        "name": "治療の流れ｜戸塚の歯医者｜戸塚パール歯科",
+        "description": "治療の流れ",
+        "step": 
+        [
+            {
+                "@type": "HowToStep",
+                "text": "受付",
+                "image": "http://www.totsuka-pearl.com/images/flow_img02.jpg",
+                "name": "来院の際にはまず受付にて保険証のご提出をお願いします。今後の治療計画に役立てるため、問診表にご記入いただきます。現在のお口の症状やお身体の健康状態、服用中のお薬などについてもお伺いしますので、詳しくご記入ください。"
+            },{
+                "@type": "HowToStep",
+                "text": "カウンセリング",
+                "image": "http://www.totsuka-pearl.com/images/flow_img03.jpg",
+                "name": "ご記入いただいた問診表をもとにカウンセリングを行います。治療に対するご希望やご心配な点、現在気になっているお口の不具合についてのお話をじっくり伺いますので、何でも遠慮なくお話しください。また持病やアレルギーなどについてもお知らせください。"
+            },{
+                "@type": "HowToStep",
+                "text": "診察・検査",
+                "image": "http://www.totsuka-pearl.com/images/flow_img04.jpg",
+                "name": "医院で行うオフィスホワイトニングなら、1回の処置でもある程度の白さが期待できます。イベントなどに向けて、お急ぎの方にもオススメです。"
+            },{
+                "@type": "HowToStep",
+                "text": "説明・相談",
+                "image": "http://www.totsuka-pearl.com/images/flow_img05.jpg",
+                "name": "診察や検査結果をもとにお口の状態をご説明します。この時点で考えられる治療方針について分かりやすくご説明しますので、ご要望をふまえて治療計画を話し合いましょう。戸塚パール歯科では、患者さんに御自身の状態を理解して治療に取り組んでもらいたいと思っています。不安な点は何でも聞いてください。"
+            }
+        ]    
+    }
+</script>	

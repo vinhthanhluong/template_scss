@@ -1,0 +1,32 @@
+//get post -> page top
+<?php
+    include('info/wp-load.php');
+    $posts_blog_on_cat = wp_get_recent_posts(array(
+        'numberposts' => 4,
+        'post_type' => 'post',
+        'post_status' => 'publish'
+
+    ));
+    foreach ($posts_blog_on_cat as $post_blog_on_cat) {
+        $id = $post_blog_on_cat['ID'];
+        $blog_on_cat_ttl = mb_strimwidth($post_blog_on_cat['post_title'], 0, 60, '...');
+        $date = date('Y/m/d', strtotime($post_blog_on_cat['post_date']));
+        $category_detail=get_the_category($id);
+
+        echo '<li>
+            <div class="cate-date">
+                <p class="cate">' . $category_detail[0]->name .'</p>
+                <p class="date">' . $date . '</p>
+            </div>
+            <p class="news-desc">
+                <a href="' . get_permalink($post_blog_on_cat['ID']) . '">' . $blog_on_cat_ttl . '</a>
+            </p>
+        </li>';
+    }
+?>
+
+
+
+//code 
+xuống dòng desc
+VD: <?php echo nl2br($txt05, false);  ?>

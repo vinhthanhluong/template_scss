@@ -1,0 +1,168 @@
+/*==========================================================================*/
+/*                           U T I L I T I E S                              */
+/*==========================================================================*/
+
+.hamburger-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    z-index: 99;
+    margin-left: 20px;
+
+    .bar {
+        width: 30px;
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $main-cl;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 30px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            border-radius: 2px;
+            background-color: $main-cl;
+            transition: all 0.3s ease;
+        }
+
+        &::before {
+            top: -8px;
+        }
+
+        &::after {
+            top: 8px;
+        }
+    }
+
+    &.--active {
+        .bar {
+            background-color: transparent;
+
+            &::before {
+                top: 0;
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(135deg);
+            }
+        }
+    }
+}
+
+.to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: $main-cl;
+    border: 1px $main-cl solid;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 98;
+    overflow: hidden;
+    transition: all .3s ease;
+    @include hidden();
+
+    &.show {
+        @include visible();
+    }
+
+    &::before{
+        content: "";
+        @include pos-mid;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 14px 20px 14px;
+        border-color: transparent transparent #fff transparent;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        opacity: .8;
+    }
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+// margin-bottom
+@for $i from 0 through 50 {
+    @if ($i % 5) == 0 {
+        .mb#{$i} {
+            margin-bottom: calc($i * 1px) !important;
+        }
+    }
+}
+
+// margin-top
+@for $i from 0 through 50 {
+    @if ($i % 5) == 0 {
+        .mt#{$i} {
+            margin-top: calc($i * 1px) !important;
+        }
+    }
+}
+
+// width
+@for $i from 0 through 50 {
+    @if ($i % 5) == 0 {
+        .w#{$i} {
+            width: calc($i * 1%);
+        }
+    }
+}

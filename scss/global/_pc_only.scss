@@ -1,0 +1,114 @@
+/*==========================================================================*/
+/*                     H O V E R    &    P C    O N L Y                     */
+/*==========================================================================*/
+
+@media screen and (min-width: 751px) {
+    #lightboxOverlay,
+    #lightbox {
+        min-width: var(--content-width) !important;
+        width: 100% !important;
+    }
+
+    .sp320,
+    .sp375,
+    .sp425 {
+        display: none;
+    }
+
+    .wow{
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+    }
+
+    .sp {
+        display: none !important;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: $main-cl;
+    }
+
+    .to-top{
+        &:hover {
+            background: $main-cl;
+        }
+    }
+
+    .no-scroll {
+        overflow: hidden;
+        -ms-touch-action: none;
+        touch-action: none;
+        -webkit-overflow-scrolling: auto;
+    }
+
+    //  ========================== Header ==========================
+    #header {
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1920px;
+    }
+    .menu-list {
+        //level 1
+        > li {
+            padding: 10px 0;
+            &:hover {
+                > a,
+                > span {
+                    color: $main-cl;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        &:hover {
+            > .sub-menu {
+                transform: translateY(0);
+                pointer-events: auto;
+                @include visible;
+                z-index: 1;
+            }
+        }
+
+        > span {
+            pointer-events: none;
+        }
+    }
+
+    .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+
+        transition: all 0.3s ease;
+        transform: translateY(10px);
+        pointer-events: none;
+        @include hidden;
+        box-shadow: 10px 10px 30px rgba($color: black, $alpha: 0.16);
+
+        a,
+        span {
+            &:hover {
+                color: #fff;
+                background-color: $main-cl;
+            }
+        }
+
+        .sub-menu {
+            top: 0;
+            left: 100%;
+        }
+    }
+
+    //  ========================== END - Header ==========================
+}
+
+/* END screen-min:751px */
+
+
+
+@media screen and (min-width: 751px) and (max-width: 1500px) {}
+
+/* END screen-min:751px && screen-max:1500px */

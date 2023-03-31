@@ -1,0 +1,3 @@
+ga() => ví dụ: onclick="ga('send', 'event', 'sp', 'tel')"
+gtag() => ví dụ: onclick="gtag('event', 'tel', {'event_category': 'sp'})"
+
