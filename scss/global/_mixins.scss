@@ -15,14 +15,14 @@ $noto: var(--noto);
     }
 }
 
-@mixin min-max($min , $max) {
+@mixin min-max($min, $max) {
     @media screen and (min-width: $min) and (max-width: $max) {
         @content;
     }
 }
 
 //scroll-base
-@mixin custom-vertical-scrollbar($width: 0px, $thumb: $main-cl, $track: transparent) {
+@mixin scrollbar-v($width: 0px, $thumb: $main-cl, $track: transparent) {
     &::-webkit-scrollbar {
         width: $width;
     }
@@ -37,7 +37,7 @@ $noto: var(--noto);
     }
 }
 
-@mixin custom-horizontal-scrollbar($height: 0px, $thumb: $main-cl, $track: transparent) {
+@mixin scrollbar-h($height: 0px, $thumb: $main-cl, $track: transparent) {
     &::-webkit-scrollbar {
         height: $height;
     }
@@ -50,6 +50,11 @@ $noto: var(--noto);
     &::-webkit-scrollbar-track {
         background: $track;
     }
+}
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
 }
 
 @mixin pos-mid() {
@@ -99,14 +104,77 @@ $noto: var(--noto);
     overflow: hidden;
 }
 
+@mixin break-text($width) {
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: $width;
+}
+
 @mixin lh($lh, $fz) {
     line-height: ($lh / $fz);
 }
 
-
-@mixin arrow-line($w, $h, $border, $color: $main-cl) {
-    width: $w;
-    height: $h;
-    border: 0px solid $color;
-    border-width: $border;
+@mixin arrow($color: #333, $width, $height: $width, $direction: right) {
+    @if ($direction ==left) {
+        border-top: calc($width / 2) solid transparent;
+        border-bottom: calc($width / 2) solid transparent;
+        border-right: $height solid $color;
+    } @else if ($direction ==top) {
+        border-left: calc($width / 2) solid transparent;
+        border-right: calc($width / 2) solid transparent;
+        border-bottom: $height solid $color;
+    } @else if ($direction ==down) {
+        border-left: calc($width / 2) solid transparent;
+        border-right: calc($width / 2) solid transparent;
+        border-top: $height solid $color;
+    } @else {
+        border-top: calc($width / 2) solid transparent;
+        border-bottom: calc($width / 2) solid transparent;
+        border-left: $height solid $color;
+    }
 }
+
+@mixin arrow-line($color: #333, $width: 10, $size: 3px, $direction: right) {
+    @include size(calc($width / 100 * 70.725 * 1px));
+    transform: rotate(45deg);
+
+    @if ($direction ==left) {
+        border-bottom: solid $size $color;
+        border-left: solid $size $color;
+    } @else if ($direction ==top) {
+        border-top: solid $size $color;
+        border-left: solid $size $color;
+    } @else if ($direction ==bottom) {
+        border-bottom: solid $size $color;
+        border-right: solid $size $color;
+    } @else {
+        border-top: solid $size $color;
+        border-right: solid $size $color;
+    }
+}
+
+@mixin arrow-corner($color: #333, $width: 10px, $height: $width, $direction-a: bottom, $direction-b: right) {
+    @include size(0);
+
+    @if ($direction-a ==top and $direction-b ==left) {
+        border-left: $width solid $color;
+        border-bottom: $height solid transparent;
+    } @else if ($direction-a ==top and $direction-b ==right) {
+        border-right: $width solid $color;
+        border-bottom: $height solid transparent;
+    } @else if ($direction-a ==bottom and $direction-b ==left) {
+        border-left: $width solid $color;
+        border-top: $height solid transparent;
+    } @else {
+        border-right: $width solid $color;
+        border-top: $height solid transparent;
+    }
+}
+
+@mixin circle($size, $color: #333) {
+    @include size($size);
+    background: $color;
+    border-radius: 100%;
+ }

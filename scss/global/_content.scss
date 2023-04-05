@@ -1,43 +1,6 @@
 /*==========================================================================*/
 /*                                M A I N                                   */
 /*==========================================================================*/
-
-.text-aos {
-    margin-top: 1000px;
-    font-size: 30px;
-    color: blue;
-    position: relative;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    letter-spacing: 5px;
-    color: #fff;
-    color: red;
-
-    &::before {
-        content: "";
-        @include pos-full;
-        background-color: blueviolet;
-        transition: all 1.2s ease;
-        right: 0;
-        left: unset;
-    }
-
-    &.aos-animate {
-        color: red;
-        &::before {
-            width: 0;
-        }
-    }
-
-    &2 {
-        margin-top: 1000px;
-    }
-
-    &3 {
-        margin-top: 1000px;
-    }
-}
-
 .idx_b08_ttl {
     text-align: center;
     margin-top: 30px;
@@ -56,26 +19,64 @@
     -webkit-box-decoration-break: clone;
 }
 
-.index-visual{
+.index-visual {
     height: 600px;
     background-color: wheat;
 }
 
-.btns-fix{
+.btns-fix {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 70px;
     background-color: salmon;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     @include hidden;
     z-index: 98;
-    &.--active{
+    &.--active {
         @include visible;
     }
 }
 
-#main{
+#main {
     margin-top: 100px;
 }
+
+.arrow {
+    margin: 100px auto;
+    text-align: center;
+    span {
+        display: inline-block;
+        @include arrow(#000, 10px);
+    }
+}
+
+.arrow-line {
+    margin: 100px auto;
+    text-align: center;
+    span {
+        display: inline-block;
+        @include arrow-line(#000, 16, 1px);
+    }
+}
+
+.arrow-corner {
+    margin: 100px auto;
+    text-align: center;
+    span {
+        display: inline-block;
+        @include arrow-corner(#000, 20px, 20px, bottom, right);
+    }
+}
+
+.circle {
+    margin: 100px auto;
+    text-align: center;
+    span {
+        display: inline-block;
+        @include circle(30px);
+    }
+}
+
+

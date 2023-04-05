@@ -15,7 +15,7 @@
         display: none;
     }
 
-    .wow{
+    .wow {
         animation-duration: 1s;
         animation-delay: 0.2s;
     }
@@ -29,7 +29,7 @@
         color: $main-cl;
     }
 
-    .to-top{
+    .to-top {
         &:hover {
             background: $main-cl;
         }
@@ -52,9 +52,9 @@
         //level 1
         > li {
             padding: 10px 0;
-            &:hover {
-                > a,
-                > span {
+            > a,
+            > span {
+                &:hover{
                     color: $main-cl;
                 }
             }
@@ -72,7 +72,7 @@
         }
 
         > span {
-            pointer-events: none;
+            // pointer-events: none;
         }
     }
 
@@ -95,11 +95,6 @@
                 background-color: $main-cl;
             }
         }
-
-        .sub-menu {
-            top: 0;
-            left: 100%;
-        }
     }
 
     //  ========================== END - Header ==========================
@@ -107,8 +102,7 @@
 
 /* END screen-min:751px */
 
-
-
-@media screen and (min-width: 751px) and (max-width: 1500px) {}
+@media screen and (min-width: 751px) and (max-width: 1500px) {
+}
 
 /* END screen-min:751px && screen-max:1500px */
